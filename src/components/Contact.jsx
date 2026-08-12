@@ -38,8 +38,8 @@ const Contact = () => {
             
             <div className="contact-info">
               <a href="mailto:devanshpaltewar2005@gmail.com" className="contact-item">
-                <div className="contact-icon"><Mail size={20} /></div>
-                <span>devanshpaltewar2005@gmail.com</span>
+                <div className="contact-icon"><Mail size={15} /></div>
+                <span className="email-text"><span className="email-user">devanshpaltewar2005</span>@gmail.com</span>
               </a>
               <a href="tel:+919579337727" className="contact-item">
                 <div className="contact-icon"><Phone size={20} /></div>

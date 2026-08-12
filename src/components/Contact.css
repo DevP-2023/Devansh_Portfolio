@@ -42,8 +42,8 @@
 
 .contact-icon {
   display: flex; align-items: center; justify-content: center;
-  width: 42px; height: 42px;
-  border-radius: 10px;
+  width: 32px; height: 32px;
+  border-radius: 8px;
   background: rgba(229,184,0,0.09);
   border: 1px solid rgba(229,184,0,0.22);
   color: var(--accent-color);
@@ -53,6 +53,16 @@
 .contact-item:hover .contact-icon {
   background: rgba(229,184,0,0.18);
   box-shadow: 0 0 18px rgba(229,184,0,0.3);
+}
+
+/* Email wrapping — username stays on one line */
+.email-user {
+  white-space: nowrap;
+}
+.email-text {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  font-size: 0.92rem;
 }
 
 /* ========================
