@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail } from 'lucide-react';
+import profilePhoto from '../Gallery/Devansh Linkdin.png';
 import './Hero.css';
 
 const containerVariants = {
@@ -65,7 +66,9 @@ const Hero = () => {
               <div className="arc-dot arc-dot-4" />
             </div>
             {/* Arc reactor core */}
-            <div className="arc-core-hero">⚡</div>
+            <div className="arc-core-hero">
+              <img src={profilePhoto} alt="Devansh Paltewar" className="profile-photo" />
+            </div>
           </div>
         </motion.div>
       </div>
