@@ -69,6 +69,44 @@
 .nav-links a:hover { color: var(--accent-color); }
 .nav-links a:hover::after { width: 100%; }
 
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-main);
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: color 0.3s ease;
+}
+.mobile-menu-btn:hover {
+  color: var(--accent-color);
+}
+
 @media (max-width: 768px) {
-  .nav-links { display: none; }
+  .mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: -1px;
+    right: -1px;
+    background: rgba(6, 6, 8, 0.95);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1.5rem;
+    border-radius: 0 0 10px 10px;
+    border: 1px solid rgba(229, 184, 0, 0.15);
+    border-top: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+  }
+  
+  .nav-links.active {
+    display: flex;
+  }
 }

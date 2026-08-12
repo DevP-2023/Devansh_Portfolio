@@ -105,9 +105,6 @@ const Projects = () => {
                 <motion.a href={project.link} className="project-link" aria-label="Github Repo" whileHover={{ scale: 1.2, rotate: 5 }}>
                   <Github size={20} />
                 </motion.a>
-                <motion.a href={project.link} className="project-link" aria-label="Live Demo" whileHover={{ scale: 1.2, rotate: -5 }}>
-                  <ExternalLink size={20} />
-                </motion.a>
               </div>
             </motion.div>
           ))}
