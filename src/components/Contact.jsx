@@ -51,10 +51,10 @@ const Contact = () => {
           <div className="social-links">
             <h3 className="social-title">Social Profiles</h3>
             <div className="social-icons">
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="social-icon">
+              <a href="https://www.linkedin.com/in/devansh-paltewar-981b8829a/" target="_blank" rel="noreferrer" className="social-icon">
                 <Linkedin size={24} />
               </a>
-              <a href="https://github.com" target="_blank" rel="noreferrer" className="social-icon">
+              <a href="https://github.com/DevanshPaltewar30" target="_blank" rel="noreferrer" className="social-icon">
                 <Github size={24} />
               </a>
             </div>

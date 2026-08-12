@@ -8,19 +8,29 @@
   gap: 3rem;
   padding: 4rem;
   margin-bottom: 4rem;
+  border-color: var(--card-border);
+  transition: border-color 0.3s ease;
+}
+
+.contact-card:hover {
+  border-color: rgba(139, 92, 246, 0.3);
 }
 
 .contact-desc {
   color: var(--text-muted);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   margin-bottom: 2rem;
   max-width: 500px;
+  line-height: 1.8;
 }
 
+/* ========================
+   CONTACT ITEMS
+======================== */
 .contact-info {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.25rem;
 }
 
 .contact-item {
@@ -29,39 +39,57 @@
   gap: 1rem;
   color: var(--text-main);
   font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .contact-item:hover {
-  color: var(--accent-color);
+  color: #a78bfa;
 }
 
 .contact-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(6, 182, 212, 0.1);
-  color: var(--accent-color);
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  color: #a78bfa;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
 }
 
+.contact-item:hover .contact-icon {
+  background: rgba(139, 92, 246, 0.2);
+  box-shadow: 0 0 16px rgba(139, 92, 246, 0.3);
+}
+
+/* ========================
+   SOCIAL
+======================== */
 .social-links {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-left: 1px solid var(--card-border);
+  border-left: 1px solid rgba(139, 92, 246, 0.15);
   padding-left: 3rem;
 }
 
 .social-title {
   margin-bottom: 1.5rem;
   color: var(--text-main);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
 }
 
 .social-icons {
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .social-icon {
@@ -71,25 +99,33 @@
   width: 50px;
   height: 50px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--text-main);
+  background: rgba(139, 92, 246, 0.07);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  color: var(--text-muted);
   transition: all 0.3s ease;
 }
 
 .social-icon:hover {
-  background: var(--accent-color);
+  background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+  border-color: #8b5cf6;
   transform: translateY(-5px);
   color: #fff;
+  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.45);
 }
 
+/* ========================
+   FOOTER
+======================== */
 .footer {
   text-align: center;
-  color: var(--text-muted);
-  font-size: 0.9rem;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  font-family: 'JetBrains Mono', monospace;
   padding-top: 2rem;
-  border-top: 1px solid var(--card-border);
+  border-top: 1px solid rgba(139, 92, 246, 0.1);
   max-width: 1200px;
   margin: 0 auto;
+  letter-spacing: 0.5px;
 }
 
 @media (max-width: 768px) {
@@ -98,10 +134,10 @@
     padding: 2rem;
     gap: 2rem;
   }
-  
+
   .social-links {
     border-left: none;
-    border-top: 1px solid var(--card-border);
+    border-top: 1px solid rgba(139, 92, 246, 0.15);
     padding-left: 0;
     padding-top: 2rem;
   }

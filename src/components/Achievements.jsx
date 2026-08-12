@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Award, BookOpen } from 'lucide-react';
+import { Award, BookOpen, ExternalLink } from 'lucide-react';
 import './Achievements.css';
 
 const achievements = [
@@ -9,7 +9,8 @@ const achievements = [
     title: "Research Paper Accepted at ICSCCC 2026 (IEEE Sponsored)",
     org: "NIT Jalandhar",
     desc: "Leveraging SCADA and AMR Integration for Electric Load Forecasting: A Multi-Horizon Deep Learning Approach for Smart Grid Operations.",
-    icon: <BookOpen size={24} />
+    icon: <BookOpen size={24} />,
+    link: "https://ieeexplore.ieee.org/document/11600173"
   },
   {
     type: "Achievement",
@@ -82,7 +83,16 @@ const Achievements = () => {
               </motion.div>
               <div className="achievement-content">
                 <span className="achievement-type">{item.type}</span>
-                <h3 className="achievement-title">{item.title}</h3>
+                {item.link ? (
+                  <a href={item.link} target="_blank" rel="noopener noreferrer" className="achievement-title-link">
+                    <h3 className="achievement-title">
+                      {item.title}
+                      <ExternalLink size={16} style={{ marginLeft: '8px', verticalAlign: 'middle' }} />
+                    </h3>
+                  </a>
+                ) : (
+                  <h3 className="achievement-title">{item.title}</h3>
+                )}
                 <h4 className="achievement-org">{item.org}</h4>
                 <p className="achievement-desc">{item.desc}</p>
               </div>

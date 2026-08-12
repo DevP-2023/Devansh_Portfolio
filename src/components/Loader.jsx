@@ -53,14 +53,7 @@ const Loader = ({ isLoading }) => {
                   {letter}
                 </motion.span>
               ))}
-              <motion.span
-                className="loader-dot"
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.9, type: 'spring', stiffness: 200 }}
-              >
-                .
-              </motion.span>
+
             </div>
 
             {/* Tagline */}

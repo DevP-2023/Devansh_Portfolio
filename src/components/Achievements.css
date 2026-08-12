@@ -6,60 +6,98 @@
   margin: 0 auto;
 }
 
+/* ========================
+   ACHIEVEMENT CARD
+======================== */
 .achievement-card {
   display: flex;
   gap: 1.5rem;
   padding: 2rem;
   align-items: flex-start;
-  transition: transform 0.3s ease;
+  transition: all 0.35s ease;
+  border-left: 3px solid transparent;
 }
 
 .achievement-card:hover {
-  transform: translateX(10px);
+  transform: translateX(8px);
+  border-left-color: #8b5cf6;
+  box-shadow: 0 8px 40px rgba(139, 92, 246, 0.12);
 }
 
+/* ========================
+   ICON
+======================== */
 .achievement-icon {
   flex-shrink: 0;
   width: 60px;
   height: 60px;
   border-radius: 16px;
-  background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(168, 85, 247, 0.2));
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(34, 211, 238, 0.1));
+  border: 1px solid rgba(139, 92, 246, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--accent-color);
+  color: #a78bfa;
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.15);
+  transition: all 0.3s ease;
 }
 
+.achievement-card:hover .achievement-icon {
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.35);
+  border-color: rgba(139, 92, 246, 0.45);
+}
+
+/* ========================
+   CONTENT
+======================== */
 .achievement-content {
   flex-grow: 1;
 }
 
+/* Type badge – like a model label */
 .achievement-type {
   display: inline-block;
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #a855f7; /* Purple */
-  margin-bottom: 0.5rem;
+  letter-spacing: 2px;
+  color: #22d3ee;
+  background: rgba(34, 211, 238, 0.08);
+  border: 1px solid rgba(34, 211, 238, 0.2);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
 }
 
 .achievement-title {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   color: var(--text-main);
   margin-bottom: 0.25rem;
+  letter-spacing: -0.01em;
 }
 
 .achievement-org {
-  font-size: 0.95rem;
-  color: var(--accent-color);
-  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #a78bfa;
+  font-family: 'JetBrains Mono', monospace;
+  margin-bottom: 0.75rem;
 }
 
 .achievement-desc {
   color: var(--text-muted);
-  font-size: 0.95rem;
-  line-height: 1.5;
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+.achievement-title-link {
+  text-decoration: none;
+  display: inline-block;
+  color: inherit;
+}
+
+.achievement-title-link:hover .achievement-title {
+  color: #22d3ee;
 }
 
 @media (max-width: 600px) {
