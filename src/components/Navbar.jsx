@@ -11,7 +11,7 @@ const Navbar = () => {
       transition={{ duration: 0.5 }}
     >
       <div className="navbar-container">
-        <a href="#home" className="logo text-gradient">DP.</a>
+        <a href="#home" className="logo text-gradient">DP</a>
         <div className="nav-links">
           <a href="#about">About</a>
           <a href="#experience">Experience</a>

@@ -18,34 +18,29 @@
   overflow: hidden;
 }
 
-/* Top accent bar – mimics model accuracy metric bar */
+/* Gold top accent bar */
 .project-card::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+  top: 0; left: 0; right: 0;
   height: 3px;
-  background: linear-gradient(90deg, #8b5cf6, #22d3ee, #10b981);
+  background: linear-gradient(90deg, #c8181e, #ffd700, #00b4ff);
   opacity: 0;
   transition: opacity 0.35s ease;
 }
-
-.project-card:hover::before {
-  opacity: 1;
-}
+.project-card:hover::before { opacity: 1; }
 
 .project-card:hover {
-  border-color: rgba(139, 92, 246, 0.35);
-  box-shadow: 0 12px 50px rgba(139, 92, 246, 0.15);
+  border-color: rgba(229,184,0,0.35);
+  box-shadow: 0 12px 50px rgba(229,184,0,0.12);
   transform: translateY(-4px);
 }
 
 /* ========================
-   TITLE & DESCRIPTION
+   TITLE & DESC
 ======================== */
 .project-title {
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   margin-bottom: 0.75rem;
   color: var(--text-main);
   letter-spacing: -0.02em;
@@ -59,17 +54,17 @@
 }
 
 /* ========================
-   STATS – model metrics style
+   STATS — stark metrics
 ======================== */
 .project-stats {
-  color: #10b981;
+  color: #00b4ff;
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-family: 'JetBrains Mono', monospace;
   margin-bottom: 1.5rem;
   padding: 0.4rem 0.75rem;
-  background: rgba(16, 185, 129, 0.08);
-  border: 1px solid rgba(16, 185, 129, 0.2);
+  background: rgba(0,180,255,0.07);
+  border: 1px solid rgba(0,180,255,0.2);
   border-radius: 6px;
   display: inline-block;
 }
@@ -78,54 +73,45 @@
    TECH TAGS
 ======================== */
 .project-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
   margin-bottom: 2rem;
 }
 
 .project-tag {
   font-size: 0.75rem;
   font-family: 'JetBrains Mono', monospace;
-  color: #a78bfa;
-  background: rgba(139, 92, 246, 0.08);
-  border: 1px solid rgba(139, 92, 246, 0.2);
+  color: var(--accent-color);
+  background: rgba(229,184,0,0.07);
+  border: 1px solid rgba(229,184,0,0.2);
   padding: 0.25rem 0.65rem;
   border-radius: 5px;
   transition: all 0.2s ease;
 }
-
 .project-tag:hover {
-  background: rgba(139, 92, 246, 0.15);
-  border-color: rgba(139, 92, 246, 0.45);
+  background: rgba(229,184,0,0.14);
+  border-color: rgba(229,184,0,0.45);
 }
 
 /* ========================
    LINKS
 ======================== */
-.project-links {
-  display: flex;
-  gap: 0.75rem;
-  margin-top: auto;
-}
+.project-links { display: flex; gap: 0.75rem; margin-top: auto; }
 
 .project-link {
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 42px;
+  align-items: center; justify-content: center;
+  width: 42px; height: 42px;
   border-radius: 10px;
-  background: rgba(139, 92, 246, 0.08);
-  border: 1px solid rgba(139, 92, 246, 0.2);
+  background: rgba(229,184,0,0.07);
+  border: 1px solid rgba(229,184,0,0.2);
   color: var(--text-muted);
   transition: all 0.3s ease;
 }
 
 .project-link:hover {
-  background: linear-gradient(135deg, #8b5cf6, #6d28d9);
-  border-color: #8b5cf6;
+  background: linear-gradient(135deg, #c8181e, #8a0f13);
+  border-color: #c8181e;
   color: #fff;
   transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+  box-shadow: 0 6px 20px rgba(200,24,30,0.45);
 }

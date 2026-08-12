@@ -9,104 +9,109 @@ const Loader = ({ isLoading }) => {
         <motion.div
           className="loader-overlay"
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, transition: { duration: 0.7, delay: 0.3, ease: 'easeInOut' } }}
+          exit={{
+            opacity: 0,
+            scale: 1.05,
+            transition: { duration: 0.6, ease: 'easeInOut' }
+          }}
         >
-          {/* Animated neural grid */}
-          <div className="loader-grid" />
+          {/* Hexagonal grid background */}
+          <div className="loader-hex-bg" />
 
-          {/* Synapse orbs */}
+          {/* Sweeping scan line */}
+          <div className="loader-sweep" />
+
+          {/* HUD corner brackets */}
+          <div className="hud-corner hud-tl" />
+          <div className="hud-corner hud-tr" />
+          <div className="hud-corner hud-bl" />
+          <div className="hud-corner hud-br" />
+
+          {/* Arc reactor core glow */}
+          <div className="arc-core" />
+
+          {/* Holographic spinning rings */}
           <motion.div
-            className="loader-orb loader-orb-1"
-            animate={{ scale: [1, 1.2, 1], opacity: [0.4, 0.7, 0.4] }}
-            transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-          />
+            className="holo-ring-wrap"
+            initial={{ opacity: 0, scale: 0.2 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2, type: 'spring', stiffness: 50 }}
+          >
+            <div className="holo-ring holo-ring-4" />
+            <div className="holo-ring holo-ring-1" />
+            <div className="holo-ring holo-ring-2" />
+            <div className="holo-ring holo-ring-3" />
+          </motion.div>
+
+          {/* Orbiting particles */}
           <motion.div
-            className="loader-orb loader-orb-2"
-            animate={{ scale: [1.1, 1, 1.1], opacity: [0.3, 0.6, 0.3] }}
-            transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
-          />
-          <motion.div
-            className="loader-orb loader-orb-3"
-            animate={{ scale: [1, 1.3, 1], opacity: [0.2, 0.5, 0.2] }}
-            transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1.5 }}
-          />
+            className="particle-orbit"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+          >
+            <div className="particle p1" />
+            <div className="particle p2" />
+            <div className="particle p3" />
+            <div className="particle p4" />
+          </motion.div>
 
-          {/* Center content */}
-          <div className="loader-content">
+          {/* CENTER: DP hologram + all content */}
+          <div className="logo-wrap">
 
-            {/* Animated initials */}
-            <div className="loader-logo">
-              {['D', 'P'].map((letter, i) => (
-                <motion.span
-                  key={i}
-                  className="loader-letter"
-                  initial={{ opacity: 0, y: 60, scale: 0.5 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  transition={{
-                    duration: 0.7,
-                    delay: 0.3 + i * 0.2,
-                    type: 'spring',
-                    stiffness: 80,
-                    damping: 12,
-                  }}
-                >
-                  {letter}
-                </motion.span>
-              ))}
-
-            </div>
+            {/* DP glitch logo */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.4, rotateX: 60 }}
+              animate={{ opacity: 1, scale: 1, rotateX: 0 }}
+              transition={{ delay: 0.3, duration: 0.9, type: 'spring', stiffness: 60, damping: 12 }}
+            >
+              <div className="holo-dp">DP</div>
+            </motion.div>
 
             {/* Tagline */}
             <motion.p
-              className="loader-tagline"
-              initial={{ opacity: 0, y: 20 }}
+              className="holo-tagline"
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.1, duration: 0.6 }}
+              transition={{ delay: 1.0, duration: 0.6 }}
             >
               AI / ML Professional
             </motion.p>
 
-            {/* Neural activation nodes */}
+            {/* JARVIS status row */}
             <motion.div
-              className="loader-nodes"
+              className="holo-status"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 1.3 }}
+              transition={{ delay: 1.2 }}
             >
-              <div className="loader-node" />
-              <div className="loader-connector" />
-              <div className="loader-node" />
-              <div className="loader-connector" />
-              <div className="loader-node" />
-              <div className="loader-connector" />
-              <div className="loader-node" />
-              <div className="loader-connector" />
-              <div className="loader-node" />
+              <div className="status-dot" />
+              <span>System Online</span>
             </motion.div>
 
             {/* Progress bar */}
             <motion.div
-              className="loader-progress-wrapper"
+              className="holo-progress-wrap"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.4 }}
             >
               <motion.div
-                className="loader-progress-bar"
+                className="holo-progress-bar"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
-                transition={{ delay: 1.5, duration: 1.1, ease: 'easeInOut' }}
+                transition={{ delay: 1.5, duration: 1.2, ease: 'easeInOut' }}
               />
             </motion.div>
 
             {/* Loading text */}
             <motion.p
-              className="loader-text"
+              className="holo-text"
               initial={{ opacity: 0 }}
               animate={{ opacity: [0, 1, 1, 0] }}
-              transition={{ delay: 1.5, duration: 1.6, times: [0, 0.2, 0.8, 1] }}
+              transition={{ delay: 1.5, duration: 1.5, times: [0, 0.15, 0.85, 1] }}
             >
-              Initializing model...
+              Assembling...
             </motion.p>
           </div>
         </motion.div>

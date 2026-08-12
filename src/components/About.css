@@ -21,26 +21,22 @@
   position: relative;
 }
 
+/* Bottom gold bar on hover */
 .skill-card::after {
   content: '';
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  bottom: 0; left: 0; right: 0;
   height: 2px;
-  background: linear-gradient(90deg, #8b5cf6, #22d3ee, #10b981);
+  background: linear-gradient(90deg, #c8181e, #ffd700, #00b4ff);
   border-radius: 0 0 16px 16px;
   opacity: 0;
   transition: opacity 0.35s ease;
 }
-
-.skill-card:hover::after {
-  opacity: 1;
-}
+.skill-card:hover::after { opacity: 1; }
 
 .skill-card:hover {
-  border-color: var(--card-border-hover);
-  box-shadow: 0 8px 40px rgba(139, 92, 246, 0.15);
+  border-color: rgba(229,184,0,0.35);
+  box-shadow: 0 8px 40px rgba(229,184,0,0.1);
 }
 
 /* ========================
@@ -50,40 +46,34 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 52px;
-  height: 52px;
+  width: 52px; height: 52px;
   border-radius: 14px;
-  background: rgba(139, 92, 246, 0.12);
-  border: 1px solid rgba(139, 92, 246, 0.2);
+  background: rgba(229,184,0,0.1);
+  border: 1px solid rgba(229,184,0,0.22);
   color: var(--accent-color);
   margin-bottom: 1.5rem;
-  box-shadow: 0 0 20px rgba(139, 92, 246, 0.15);
+  box-shadow: 0 0 18px rgba(229,184,0,0.15);
 }
 
 .skill-card h3 {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   margin-bottom: 1.5rem;
   color: var(--text-main);
   font-family: 'JetBrains Mono', monospace;
   font-weight: 600;
-  letter-spacing: -0.01em;
 }
 
 /* ========================
    SKILL TAGS
 ======================== */
-.skill-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
+.skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 
 .skill-tag {
-  background: rgba(139, 92, 246, 0.06);
-  border: 1px solid rgba(139, 92, 246, 0.15);
+  background: rgba(229,184,0,0.05);
+  border: 1px solid rgba(229,184,0,0.15);
   padding: 0.35rem 0.8rem;
   border-radius: 6px;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-family: 'JetBrains Mono', monospace;
   color: var(--text-muted);
   transition: all 0.2s ease;
@@ -91,13 +81,13 @@
 }
 
 .skill-tag:hover {
-  border-color: rgba(139, 92, 246, 0.5);
-  color: #a78bfa;
-  background: rgba(139, 92, 246, 0.12);
-  box-shadow: 0 0 10px rgba(139, 92, 246, 0.2);
+  border-color: rgba(229,184,0,0.5);
+  color: var(--accent-color);
+  background: rgba(229,184,0,0.1);
+  box-shadow: 0 0 10px rgba(229,184,0,0.2);
 }
 
 .skill-card:hover .skill-tag {
-  border-color: rgba(139, 92, 246, 0.25);
+  border-color: rgba(229,184,0,0.22);
   color: var(--text-main);
 }

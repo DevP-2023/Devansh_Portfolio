@@ -7,10 +7,7 @@ const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.18,
-      delayChildren: 0.2
-    }
+    transition: { staggerChildren: 0.18, delayChildren: 0.2 }
   }
 };
 
@@ -29,10 +26,10 @@ const Hero = () => {
           initial="hidden"
           animate="visible"
         >
-          {/* AI status badge */}
+          {/* Avengers status badge */}
           <motion.div className="hero-badge" variants={itemVariants}>
             <span className="hero-badge-dot" />
-            model.status = "active"
+            avengers.status = "active"
           </motion.div>
 
           <motion.h2 className="greeting" variants={itemVariants}>Hi, I'm</motion.h2>
@@ -52,27 +49,27 @@ const Hero = () => {
           </motion.div>
         </motion.div>
 
-        {/* Neural Network Orb Visual */}
+        {/* Arc Reactor Visual */}
         <motion.div
           className="hero-visual"
-          initial={{ opacity: 0, scale: 0.7 }}
+          initial={{ opacity: 0, scale: 0.6 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, delay: 0.4, type: 'spring', bounce: 0.3 }}
         >
-          <div className="neural-orb">
-            <div className="neural-ring" />
-            <div className="neural-ring-2" />
-            <div className="neural-core">
-              {/* Floating neural nodes */}
-              <div className="neural-node-dot" />
-              <div className="neural-node-dot" />
-              <div className="neural-node-dot" />
-              <div className="neural-node-dot" />
-              <div className="neural-node-dot" />
-              <div className="neural-node-dot" />
-              {/* Center icon */}
-              <span className="neural-center-icon">🧠</span>
+          <div className="arc-reactor">
+            <div className="arc-ring arc-ring-4" />
+            <div className="arc-ring arc-ring-1" />
+            <div className="arc-ring arc-ring-2" />
+            <div className="arc-ring arc-ring-3" />
+            {/* Orbiting dots */}
+            <div className="arc-orbit">
+              <div className="arc-dot arc-dot-1" />
+              <div className="arc-dot arc-dot-2" />
+              <div className="arc-dot arc-dot-3" />
+              <div className="arc-dot arc-dot-4" />
             </div>
+            {/* Arc reactor core */}
+            <div className="arc-core-hero">⚡</div>
           </div>
         </motion.div>
       </div>

@@ -8,12 +8,12 @@ import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Achievements from './components/Achievements';
 import Contact from './components/Contact';
+import Background from './components/Background';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Total animation time: letters ~0.7s, tagline 1.2s, progress bar 1.5+1s = ~3.2s
     const timer = setTimeout(() => setIsLoading(false), 3200);
     return () => clearTimeout(timer);
   }, []);
@@ -29,6 +29,7 @@ function App() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
           >
+            <Background />
             <Navbar />
             <main>
               <Hero />

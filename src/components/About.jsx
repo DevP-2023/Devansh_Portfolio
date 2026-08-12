@@ -53,7 +53,7 @@ const About = () => {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
         >
-          <span className="section-label">// skill_modules.py</span>
+          <span className="section-label">// stark.database / skills</span>
           <h2 className="section-title text-gradient">Technical Arsenal</h2>
         </motion.div>
           
