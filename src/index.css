@@ -1,21 +1,52 @@
-  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap');
 
 :root {
-  --bg-color: #0f172a; /* Slate 900 */
-  --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-  --text-main: #f8fafc; /* Slate 50 */
-  --text-muted: #94a3b8; /* Slate 400 */
-  --accent-color: #06b6d4; /* Cyan 500 */
-  --accent-hover: #0891b2; /* Cyan 600 */
-  --card-bg: rgba(30, 41, 59, 0.7); /* Slate 800 with transparency */
-  --card-border: rgba(255, 255, 255, 0.1);
-  --font-family: 'Outfit', sans-serif;
+  /* Core AI/ML Color Palette */
+  --bg-color: #05070f;               /* Deep void black */
+  --bg-secondary: #0b0f1f;           /* Neural dark */
+  --bg-gradient: linear-gradient(145deg, #05070f 0%, #0b0f1f 50%, #080c1a 100%);
+
+  /* Text */
+  --text-main: #e2e8f8;              /* Cool white */
+  --text-muted: #7082a3;             /* Muted blue-grey */
+  --text-dim: #3d4f72;               /* Dim tokens */
+
+  /* Accent – Electric Violet (AI/Neural Networks) */
+  --accent-color: #8b5cf6;           /* Violet 500 */
+  --accent-hover: #7c3aed;           /* Violet 600 */
+  --accent-glow: rgba(139, 92, 246, 0.35);
+
+  /* Secondary accent – Neon Teal (Data Flow / Signals) */
+  --signal-color: #22d3ee;           /* Cyan 400 */
+  --signal-glow: rgba(34, 211, 238, 0.3);
+
+  /* Emerald – Training metrics / Positive outputs */
+  --metric-color: #10b981;
+  --metric-glow: rgba(16, 185, 129, 0.25);
+
+  /* Cards & Surfaces */
+  --card-bg: rgba(11, 15, 31, 0.75);
+  --card-border: rgba(139, 92, 246, 0.15);
+  --card-border-hover: rgba(139, 92, 246, 0.45);
+  --glass-shimmer: rgba(139, 92, 246, 0.06);
+
+  /* Typography */
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-family: 'Space Grotesk', sans-serif;
 }
 
+/* ========================
+   RESET & BASE
+======================== */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -23,32 +54,67 @@ body {
   background-color: var(--bg-color);
   background: var(--bg-gradient);
   color: var(--text-main);
-  line-height: 1.6;
+  line-height: 1.7;
   overflow-x: hidden;
   min-height: 100vh;
+  /* Subtle animated neural dot-grid */
+  background-image:
+    var(--bg-gradient),
+    radial-gradient(circle, rgba(139, 92, 246, 0.04) 1px, transparent 1px);
+  background-size: auto, 48px 48px;
+  background-attachment: fixed;
 }
 
-/* Glassmorphism utility */
+/* ========================
+   GLASSMORPHISM
+======================== */
 .glass {
   background: var(--card-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
   border: 1px solid var(--card-border);
   border-radius: 16px;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Typography utilities */
+.glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--glass-shimmer);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.glass:hover::before {
+  opacity: 1;
+}
+
+/* ========================
+   TYPOGRAPHY
+======================== */
 h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 1rem;
+  letter-spacing: -0.02em;
 }
 
+/* AI-themed gradient: violet → teal */
 .text-gradient {
-  background: linear-gradient(90deg, #06b6d4, #a855f7); /* Cyan to Purple */
+  background: linear-gradient(135deg, #8b5cf6 0%, #22d3ee 60%, #10b981 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* Monospace accent for tech labels */
+.mono {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
 }
 
 a {
@@ -61,7 +127,9 @@ a:hover {
   color: var(--accent-color);
 }
 
-/* Layout utilities */
+/* ========================
+   LAYOUT
+======================== */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -70,33 +138,39 @@ a:hover {
 
 .section {
   padding: 6rem 0;
+  position: relative;
 }
 
-/* Buttons */
+/* ========================
+   BUTTONS
+======================== */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
+  padding: 0.75rem 1.75rem;
+  border-radius: 10px;
   font-weight: 600;
+  font-family: var(--font-family);
+  font-size: 0.95rem;
   transition: all 0.3s ease;
   cursor: pointer;
   border: none;
-  font-family: var(--font-family);
   gap: 0.5rem;
+  letter-spacing: 0.01em;
 }
 
 .btn-primary {
-  background-color: var(--accent-color);
+  background: linear-gradient(135deg, #8b5cf6, #6d28d9);
   color: #fff;
-  box-shadow: 0 4px 14px 0 rgba(6, 182, 212, 0.39);
+  box-shadow: 0 4px 20px var(--accent-glow), 0 0 0 1px rgba(139, 92, 246, 0.3);
 }
 
 .btn-primary:hover {
-  background-color: var(--accent-hover);
+  background: linear-gradient(135deg, #7c3aed, #5b21b6);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(6, 182, 212, 0.5);
+  box-shadow: 0 8px 30px var(--accent-glow), 0 0 0 1px rgba(139, 92, 246, 0.5);
+  color: #fff;
 }
 
 .btn-outline {
@@ -108,11 +182,29 @@ a:hover {
 .btn-outline:hover {
   border-color: var(--accent-color);
   color: var(--accent-color);
+  background: rgba(139, 92, 246, 0.08);
 }
 
-/* Custom Scrollbar */
+/* ========================
+   SECTION LABEL (monospace prefix)
+======================== */
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--signal-color);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  display: block;
+  text-align: center;
+}
+
+/* ========================
+   SCROLLBAR
+======================== */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -120,10 +212,29 @@ a:hover {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #334155;
+  background: linear-gradient(180deg, #8b5cf6, #22d3ee);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #475569;
+  background: #8b5cf6;
+}
+
+/* ========================
+   SELECTION
+======================== */
+::selection {
+  background: rgba(139, 92, 246, 0.35);
+  color: #fff;
+}
+
+/* ========================
+   NEURAL NETWORK GLOW UTILITY
+======================== */
+.neural-glow {
+  box-shadow: 0 0 30px var(--accent-glow), 0 0 80px rgba(139, 92, 246, 0.1);
+}
+
+.signal-glow {
+  box-shadow: 0 0 20px var(--signal-glow);
 }

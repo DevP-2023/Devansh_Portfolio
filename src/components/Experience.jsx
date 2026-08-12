@@ -16,29 +16,58 @@ const experiences = [
   }
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.3 }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, x: -30 },
+  visible: { opacity: 1, x: 0, transition: { type: 'spring', stiffness: 60 } }
+};
+
 const Experience = () => {
   return (
     <section id="experience" className="experience section">
       <div className="container">
-        <h2 className="section-title text-gradient">Professional Experience</h2>
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="section-title text-gradient">Professional Experience</h2>
+        </motion.div>
         
-        <div className="timeline">
+        <motion.div 
+          className="timeline"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           {experiences.map((exp, index) => (
             <motion.div 
               key={index}
               className="timeline-item"
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              variants={itemVariants}
             >
               <div className="timeline-marker">
-                <div className="timeline-icon">
+                <motion.div 
+                  className="timeline-icon"
+                  whileHover={{ scale: 1.2, rotate: 360, transition: { duration: 0.6 } }}
+                >
                   <Briefcase size={16} />
-                </div>
+                </motion.div>
               </div>
               
-              <div className="timeline-content glass">
+              <motion.div 
+                className="timeline-content glass"
+                whileHover={{ x: 10, transition: { type: 'spring', stiffness: 300 } }}
+              >
                 <div className="timeline-header">
                   <div>
                     <h3>{exp.role}</h3>
@@ -52,10 +81,10 @@ const Experience = () => {
                     <li key={i}>{item}</li>
                   ))}
                 </ul>
-              </div>
+              </motion.div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

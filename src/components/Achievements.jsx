@@ -34,25 +34,52 @@ const achievements = [
   }
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2 }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 50 } }
+};
+
 const Achievements = () => {
   return (
     <section id="achievements" className="achievements section">
       <div className="container">
-        <h2 className="section-title text-gradient">Achievements & Publications</h2>
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="section-title text-gradient">Achievements & Publications</h2>
+        </motion.div>
         
-        <div className="achievements-grid">
+        <motion.div 
+          className="achievements-grid"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           {achievements.map((item, index) => (
             <motion.div 
               key={index}
               className="achievement-card glass"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              variants={itemVariants}
+              whileHover={{ scale: 1.02, x: 10, transition: { type: 'spring', stiffness: 300 } }}
             >
-              <div className="achievement-icon">
+              <motion.div 
+                className="achievement-icon"
+                whileHover={{ rotate: 15, scale: 1.1 }}
+              >
                 {item.icon}
-              </div>
+              </motion.div>
               <div className="achievement-content">
                 <span className="achievement-type">{item.type}</span>
                 <h3 className="achievement-title">{item.title}</h3>
@@ -61,7 +88,7 @@ const Achievements = () => {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
