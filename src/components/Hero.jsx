@@ -26,11 +26,7 @@ const Hero = () => {
           initial="hidden"
           animate="visible"
         >
-          {/* Avengers status badge */}
-          <motion.div className="hero-badge" variants={itemVariants}>
-            <span className="hero-badge-dot" />
-            avengers.status = "active"
-          </motion.div>
+
 
           <motion.h2 className="greeting" variants={itemVariants}>Hi, I'm</motion.h2>
           <motion.h1 className="name text-gradient" variants={itemVariants}>Devansh Paltewar</motion.h1>

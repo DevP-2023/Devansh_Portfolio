@@ -35,6 +35,9 @@
   font-weight: 500;
   transition: color 0.3s ease;
 }
+.contact-item span {
+  word-break: break-word;
+}
 .contact-item:hover { color: var(--accent-color); }
 
 .contact-icon {
