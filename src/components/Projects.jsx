@@ -30,7 +30,7 @@ const projects = [
     description: "Designed AI-driven learning paths based on quiz performance and learner goals. Integrated collaborative filtering for adaptive, real-time course recommendations.",
     stats: "",
     tags: ["Recommendation System", "Collaborative Filtering", "AI"],
-    github: "#"
+    github: "https://github.com/DevanshPaltewar30/Smart-Gamified-Learning-Buddy"
   }
 ];
 
