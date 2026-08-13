@@ -15,21 +15,21 @@ const projects = [
     title: "Electricity Load Forecasting",
     description: "Developed a deep learning time-series forecasting system using SCADA and AMR datasets, forecasting electricity demand at 15-minute, 1-hour, and 1-day horizons.",
     stats: "MAPE: 0.61% · R² = 0.995 (15-min horizon)",
-    tags: ["Deep Learning", "Time-Series", "SCADA", "Python"],
-    github: "#"
+    tags: ["Deep Learning", "Time-Series Analysis", "SCADA & AMR", "Python"],
+    github: "https://ieeexplore.ieee.org/document/11600173"
   },
   {
     title: "AI-Enabled EEG Monitoring",
     description: "Built an end-to-end EEG analytics platform for neurological assessment and cognitive workload analysis. Integrated a RAG framework for personalised clinical recommendations.",
     stats: "",
-    tags: ["Signal Processing", "Explainable AI", "LangChain", "Vector Search"],
+    tags: ["Signal Processing", "Explainable AI", "LangChain", "Vector Search","RAG","Machine Learning"],
     github: "#"
   },
   {
     title: "Personalised Learning Pathway",
     description: "Designed AI-driven learning paths based on quiz performance and learner goals. Integrated collaborative filtering for adaptive, real-time course recommendations.",
     stats: "",
-    tags: ["Recommendation System", "Collaborative Filtering", "AI"],
+    tags: ["Recommendation System", "Collaborative Filtering", "AI","RAG"],
     github: "https://github.com/DevanshPaltewar30/Smart-Gamified-Learning-Buddy"
   }
 ];
