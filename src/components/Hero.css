@@ -150,5 +150,9 @@
 }
 
 @media (max-width: 480px) {
-  .hero-name { font-size: 2.8rem; }
+  .hero-name { font-size: 2.25rem; }
+  .hero-photo-frame {
+    width: 150px;
+    height: 150px;
+  }
 }
