@@ -9,6 +9,7 @@ import Projects from './components/Projects';
 import Achievements from './components/Achievements';
 import Contact from './components/Contact';
 import Background from './components/Background';
+import CustomCursor from './components/CustomCursor';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -20,6 +21,7 @@ function App() {
 
   return (
     <>
+      <CustomCursor />
       <Loader isLoading={isLoading} />
 
       <AnimatePresence>

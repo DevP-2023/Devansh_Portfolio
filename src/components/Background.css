@@ -1,107 +1,73 @@
-/* ========================
-   BACKGROUND ROOT — fixed layer
-======================== */
 .bg-root {
   position: fixed;
   inset: 0;
   z-index: -1;
-  overflow: hidden;
   pointer-events: none;
+  background-color: var(--bg-color);
+  overflow: hidden;
 }
 
-/* ========================
-   BASE GRADIENT
-   Deep void with a warm crimson-black undertone
-======================== */
-.bg-base {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 120% 80% at 70% 20%, rgba(120, 10, 10, 0.25) 0%, transparent 60%),
-    radial-gradient(ellipse 100% 60% at 20% 80%, rgba(90, 60, 0, 0.18) 0%, transparent 55%),
-    linear-gradient(160deg, #07040a 0%, #0a0608 35%, #060a0c 65%, #05060a 100%);
-}
-
-/* ========================
-   DIAGONAL CIRCUIT GRID
-======================== */
+/* ── Subtle Dot Grid ── */
 .bg-grid {
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(rgba(229, 184, 0, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(229, 184, 0, 0.025) 1px, transparent 1px),
-    linear-gradient(45deg, rgba(200, 24, 30, 0.015) 1px, transparent 1px),
-    linear-gradient(-45deg, rgba(200, 24, 30, 0.015) 1px, transparent 1px);
-  background-size: 80px 80px, 80px 80px, 80px 80px, 80px 80px;
-  animation: grid-breathe 8s ease-in-out infinite;
+  background-size: 32px 32px;
+  background-image: radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.04) 1px, transparent 0);
+  z-index: 2;
+  mask-image: radial-gradient(ellipse 100% 100% at 50% 50%, black 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 100% 100% at 50% 50%, black 40%, transparent 100%);
 }
 
-@keyframes grid-breathe {
-  0%, 100% { opacity: 0.6; }
-  50%       { opacity: 1; }
-}
-
-/* ========================
-   RADIAL GLOW SPOTS
-======================== */
-.bg-glow {
+/* ── Animated Gradient Orbs ── */
+.bg-orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(100px);
+  filter: blur(90px);
+  opacity: 0.5;
+  animation: orbFloat ease-in-out infinite alternate;
+  z-index: 1;
 }
 
-/* Top-right — Stark red energy source */
-.bg-glow-red {
-  width: 700px;
-  height: 700px;
-  top: -200px;
-  right: -150px;
-  background: radial-gradient(circle, rgba(200, 24, 30, 0.18) 0%, transparent 65%);
-  animation: glow-pulse 7s ease-in-out infinite;
+.orb-1 {
+  top: -15%;
+  left: -10%;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, rgba(29, 78, 216, 0.15) 0%, transparent 70%);
+  animation-duration: 22s;
 }
 
-/* Bottom-left — Avengers gold */
-.bg-glow-gold {
-  width: 600px;
-  height: 600px;
-  bottom: -150px;
-  left: -100px;
-  background: radial-gradient(circle, rgba(229, 184, 0, 0.14) 0%, transparent 65%);
-  animation: glow-pulse 9s ease-in-out infinite reverse;
+.orb-2 {
+  bottom: -20%;
+  right: -10%;
+  width: 65vw;
+  height: 65vw;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, transparent 70%);
+  animation-duration: 28s;
+  animation-delay: -5s;
 }
 
-/* Center — arc reactor blue ghost */
-.bg-glow-blue {
-  width: 500px;
-  height: 500px;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(0, 180, 255, 0.07) 0%, transparent 65%);
-  animation: glow-pulse 5s ease-in-out infinite 1s;
+.orb-3 {
+  top: 35%;
+  left: 55%;
+  width: 45vw;
+  height: 45vw;
+  background: radial-gradient(circle, rgba(29, 78, 216, 0.08) 0%, transparent 70%);
+  animation-duration: 24s;
+  animation-delay: -12s;
 }
 
-@keyframes glow-pulse {
-  0%, 100% { transform: scale(1); opacity: 0.7; }
-  50%       { transform: scale(1.15); opacity: 1; }
+@keyframes orbFloat {
+  0%   { transform: translate(0, 0) scale(1); }
+  33%  { transform: translate(3vw, -4vh) scale(1.05); }
+  66%  { transform: translate(-2vw, 3vh) scale(0.95); }
+  100% { transform: translate(0, 0) scale(1); }
 }
 
-.bg-glow-blue {
-  animation: glow-pulse-center 5s ease-in-out infinite 1s;
-}
-
-@keyframes glow-pulse-center {
-  0%, 100% { transform: translate(-50%, -50%) scale(1);    opacity: 0.6; }
-  50%       { transform: translate(-50%, -50%) scale(1.2);  opacity: 1; }
-}
-
-/* ========================
-   PARTICLE CANVAS
-======================== */
-.bg-canvas {
+/* ── Vignette for depth ── */
+.bg-vignette {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
+  background: radial-gradient(ellipse 100% 100% at 50% 50%, transparent 50%, rgba(0, 0, 0, 0.02) 100%);
+  z-index: 3;
 }

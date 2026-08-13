@@ -5,75 +5,100 @@ import profilePhoto from '../Gallery/Devansh Linkdin.png';
 import './Hero.css';
 
 const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.18, delayChildren: 0.2 }
-  }
+  hidden:  { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.12, delayChildren: 0.8 } }
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 50 } }
+  hidden:  { opacity: 0, y: 30, filter: 'blur(5px)' },
+  visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
 };
 
-const Hero = () => {
-  return (
-    <section id="home" className="hero section">
-      <div className="container hero-container">
-        <motion.div
-          className="hero-content"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
+const Hero = () => (
+  <section id="home" className="hero section">
+    <div className="container hero-container">
+
+      {/* ── Left: Photo ── */}
+      <motion.div
+        className="hero-photo-wrap"
+        initial={{ opacity: 0, scale: 0.5, filter: 'blur(10px)' }}
+        animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+        transition={{ duration: 1.2, delay: 0.6, type: 'spring', stiffness: 100, damping: 20 }}
+      >
+        <motion.div 
+          className="hero-photo-frame"
+          whileHover={{ scale: 1.05, rotate: 2 }}
+          transition={{ type: 'spring', stiffness: 300, damping: 15 }}
         >
+          <img src={profilePhoto} alt="Devansh Paltewar" className="hero-photo" />
+        </motion.div>
+        
+        {/* Animated decorative rings */}
+        <motion.div 
+          className="hero-ring hero-ring-1"
+          animate={{ rotate: 360 }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+        />
+        <motion.div 
+          className="hero-ring hero-ring-2"
+          animate={{ rotate: -360 }}
+          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+        />
+      </motion.div>
 
+      {/* ── Right: Text ── */}
+      <motion.div
+        className="hero-content"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.span className="hero-eyebrow" variants={itemVariants}>
+          AI / Machine Learning Professional
+        </motion.span>
 
-          <motion.h2 className="greeting" variants={itemVariants}>Hi, I'm</motion.h2>
-          <motion.h1 className="name text-gradient" variants={itemVariants}>Devansh Paltewar</motion.h1>
-          <motion.h3 className="title" variants={itemVariants}>AI / ML Professional</motion.h3>
-          <motion.p className="summary" variants={itemVariants}>
-            Results-driven AI/ML professional with hands-on experience in machine learning, deep learning, NLP,
-            and time-series forecasting. Focused on advancing applied AI research and solving complex analytical challenges.
-          </motion.p>
-          <motion.div className="hero-buttons" variants={itemVariants}>
-            <a href="#contact" className="btn btn-primary">
-              <Mail size={18} /> Contact Me
-            </a>
-            <a href="#about" className="btn btn-outline">
-              Explore Skills
-            </a>
+        <h1 className="hero-name">
+          <motion.div style={{ overflow: 'hidden' }}>
+            <motion.span style={{ display: 'inline-block' }} variants={itemVariants}>
+              Devansh
+            </motion.span>
           </motion.div>
-        </motion.div>
+          <motion.div style={{ overflow: 'hidden' }}>
+            <motion.span style={{ display: 'inline-block' }} variants={itemVariants}>
+              Paltewar
+            </motion.span>
+          </motion.div>
+        </h1>
 
-        {/* Arc Reactor Visual */}
-        <motion.div
-          className="hero-visual"
-          initial={{ opacity: 0, scale: 0.6 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, delay: 0.4, type: 'spring', bounce: 0.3 }}
-        >
-          <div className="arc-reactor">
-            <div className="arc-ring arc-ring-4" />
-            <div className="arc-ring arc-ring-1" />
-            <div className="arc-ring arc-ring-2" />
-            <div className="arc-ring arc-ring-3" />
-            {/* Orbiting dots */}
-            <div className="arc-orbit">
-              <div className="arc-dot arc-dot-1" />
-              <div className="arc-dot arc-dot-2" />
-              <div className="arc-dot arc-dot-3" />
-              <div className="arc-dot arc-dot-4" />
-            </div>
-            {/* Arc reactor core */}
-            <div className="arc-core-hero">
-              <img src={profilePhoto} alt="Devansh Paltewar" className="profile-photo" />
-            </div>
-          </div>
+        <motion.p className="hero-summary" variants={itemVariants}>
+          Results-driven professional with demonstrated expertise in machine learning,
+          deep learning, NLP, and time-series forecasting. Committed to advancing applied
+          AI research and delivering measurable analytical outcomes.
+        </motion.p>
+
+        <motion.div className="hero-actions" variants={itemVariants}>
+          <motion.a 
+            href="#contact" 
+            className="btn btn-primary"
+            whileHover={{ y: -2 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Mail size={16} /> Get in Touch
+          </motion.a>
+          <motion.a 
+            href="#about" 
+            className="btn btn-outline"
+            whileHover={{ y: -2 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            View Profile
+          </motion.a>
         </motion.div>
-      </div>
-    </section>
-  );
-};
+      </motion.div>
+
+    </div>
+
+  </section>
+);
 
 export default Hero;

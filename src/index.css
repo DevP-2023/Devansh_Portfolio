@@ -1,129 +1,146 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
 
 :root {
-  /* ── Backgrounds ── */
-  --bg-color: #060608;
-  --bg-secondary: #0c0c12;
-  --bg-gradient: linear-gradient(145deg, #060608 0%, #0c0c12 60%, #070709 100%);
+  /* ── Core Palette ── */
+  --bg-color:       #f8f9fa;
+  --bg-secondary:   #f1f3f5;
+  --bg-card:        #ffffff;
 
   /* ── Text ── */
-  --text-main: #f0f0f5;
-  --text-muted: #7a8a9e;
-  --text-dim: #3a4256;
+  --text-primary:   #1a1f2c;
+  --text-secondary: #4a5568;
+  --text-muted:     #718096;
 
-  /* ── Avengers Gold (primary) ── */
-  --accent-color: #e5b800;
-  --accent-hover: #ffd700;
-  --accent-glow: rgba(229, 184, 0, 0.35);
+  /* ── Accent — formal corporate navy/blue ── */
+  --accent:         #1d4ed8;
+  --accent-light:   #3b82f6;
+  --accent-dim:     rgba(29, 78, 216, 0.08);
+  --accent-border:  rgba(29, 78, 216, 0.2);
 
-  /* ── Arc Reactor Blue (secondary) ── */
-  --signal-color: #00b4ff;
-  --signal-glow: rgba(0, 180, 255, 0.3);
-
-  /* ── Stark Red (danger / highlight) ── */
-  --danger-color: #c8181e;
-  --danger-glow: rgba(200, 24, 30, 0.35);
-
-  /* ── Cards & Surfaces ── */
-  --card-bg: rgba(12, 12, 18, 0.82);
-  --card-border: rgba(229, 184, 0, 0.12);
-  --card-border-hover: rgba(229, 184, 0, 0.4);
-  --glass-shimmer: rgba(229, 184, 0, 0.04);
+  /* ── Borders & Surfaces ── */
+  --border:         rgba(0, 0, 0, 0.08);
+  --border-hover:   rgba(0, 0, 0, 0.15);
+  --surface:        rgba(0, 0, 0, 0.02);
 
   /* ── Typography ── */
-  --font-heading: 'Space Grotesk', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
-  --font-family: 'Space Grotesk', sans-serif;
+  --font-sans:      'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif:     'Playfair Display', Georgia, serif;
+
+  /* ── Spacing ── */
+  --radius-sm:  6px;
+  --radius-md:  10px;
+  --radius-lg:  16px;
 }
 
 /* ========================
    RESET & BASE
 ======================== */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: var(--font-family);
-  background-color: #07040a;
-  color: var(--text-main);
-  line-height: 1.7;
+  font-family: var(--font-sans);
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  line-height: 1.75;
   overflow-x: hidden;
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-
-/* ========================
-   GLASSMORPHISM
-======================== */
-.glass {
-  background: var(--card-bg);
-  backdrop-filter: blur(16px) saturate(160%);
-  -webkit-backdrop-filter: blur(16px) saturate(160%);
-  border: 1px solid var(--card-border);
-  border-radius: 16px;
-  position: relative;
-  overflow: hidden;
-}
-
-.glass::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--glass-shimmer);
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
-}
-
-.glass:hover::before { opacity: 1; }
 
 /* ========================
    TYPOGRAPHY
 ======================== */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 1rem;
-  letter-spacing: -0.02em;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--text-primary);
+  letter-spacing: -0.025em;
 }
 
-/* Avengers gold → red gradient */
-.text-gradient {
-  background: linear-gradient(135deg, #ffffff 0%, #ffd700 40%, #c8181e 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.mono { font-family: var(--font-mono); font-size: 0.875em; }
+p { color: var(--text-secondary); }
 
 a {
   color: inherit;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.2s ease;
 }
-a:hover { color: var(--accent-color); }
+a:hover { color: var(--accent-light); }
 
 /* ========================
    LAYOUT
 ======================== */
-.container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-.section { padding: 6rem 0; position: relative; }
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section { padding: 7rem 0; position: relative; }
 
 /* ========================
-   SECTION LABEL
+   SECTION HEADING
 ======================== */
-.section-label {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  font-weight: 500;
-  color: var(--signal-color);
-  letter-spacing: 4px;
+.section-eyebrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  margin-bottom: 0.75rem;
-  display: block;
-  text-align: center;
-  text-shadow: 0 0 12px rgba(0,180,255,0.5);
+  color: var(--accent);
+  margin-bottom: 0.85rem;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+}
+
+.section-divider {
+  width: 40px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+  margin-bottom: 3.5rem;
+}
+
+/* ========================
+   SECTION WATERMARK
+======================== */
+.section-watermark {
+  position: absolute;
+  top: 5%;
+  left: -5%;
+  font-size: 14vw;
+  font-weight: 800;
+  color: var(--text-primary);
+  z-index: 0;
+  pointer-events: none;
+  white-space: nowrap;
+  letter-spacing: -0.05em;
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  user-select: none;
+}
+
+/* ========================
+   CARD SURFACE
+======================== */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.card:hover {
+  border-color: var(--border-hover);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
 }
 
 /* ========================
@@ -133,48 +150,48 @@ a:hover { color: var(--accent-color); }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem 1.75rem;
-  border-radius: 8px;
-  font-weight: 600;
-  font-family: var(--font-family);
-  font-size: 0.95rem;
-  transition: all 0.3s ease;
+  gap: 0.5rem;
+  padding: 0.7rem 1.6rem;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
   cursor: pointer;
   border: none;
-  gap: 0.5rem;
+  letter-spacing: 0.01em;
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #c8181e, #8a0f13);
+  background: var(--accent);
   color: #fff;
-  box-shadow: 0 4px 20px var(--danger-glow), 0 0 0 1px rgba(200,24,30,0.3);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
 .btn-primary:hover {
-  background: linear-gradient(135deg, #e02020, #c8181e);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px var(--danger-glow), 0 0 0 1px rgba(200,24,30,0.5);
+  background: var(--accent-light);
   color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(79, 126, 247, 0.4);
 }
 
 .btn-outline {
   background: transparent;
-  color: var(--text-main);
-  border: 1px solid rgba(229,184,0,0.3);
+  color: var(--text-primary);
+  border: 1px solid var(--border-hover);
 }
 .btn-outline:hover {
-  border-color: var(--accent-color);
-  color: var(--accent-color);
-  background: rgba(229,184,0,0.08);
-  box-shadow: 0 0 20px var(--accent-glow);
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-dim);
 }
 
 /* ========================
    SCROLLBAR
 ======================== */
-::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--bg-color); }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #c8181e, #e5b800);
+  background: var(--text-muted);
   border-radius: 4px;
 }
 
@@ -182,6 +199,6 @@ a:hover { color: var(--accent-color); }
    SELECTION
 ======================== */
 ::selection {
-  background: rgba(229, 184, 0, 0.3);
-  color: #fff;
+  background: rgba(29, 78, 216, 0.15);
+  color: var(--accent);
 }
