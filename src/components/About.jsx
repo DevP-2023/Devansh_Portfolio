@@ -1,28 +1,38 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code2, Database, BrainCircuit, LineChart } from 'lucide-react';
+import { Code2, Database, BrainCircuit, LineChart, Terminal, Cloud } from 'lucide-react';
 import './About.css';
 
 const skills = [
   {
-    category: "Languages & Tools",
+    category: "Languages",
     icon: <Code2 size={20} />,
-    items: ["Python", "SQL", "C++", "C", "Git", "Docker"]
+    items: ["Python", "SQL", "C++", "C"]
   },
   {
-    category: "Machine Learning & DL",
+    category: "ML & DL",
     icon: <BrainCircuit size={20} />,
-    items: ["Supervised Learning", "Deep Learning", "CNN", "RNN", "NLP", "Transformers", "LLMs", "Computer Vision"]
+    items: ["Supervised Learning", "Deep Learning", "CNN", "RNN", "NLP", "Transformers", "LLMs", "Agentic AI", "Time Series Forecasting", "Computer Vision"]
   },
   {
-    category: "Frameworks & Libraries",
+    category: "Frameworks",
     icon: <Database size={20} />,
     items: ["PyTorch", "TensorFlow", "Hugging Face", "LangChain", "LangGraph", "Scikit-learn"]
   },
   {
     category: "Mathematics & Statistics",
     icon: <LineChart size={20} />,
-    items: ["Probability", "Linear Algebra", "Inferential Statistics", "Data Structures"]
+    items: ["Probability", "Linear Algebra", "Inferential Statistics"]
+  },
+  {
+    category: "Software Development",
+    icon: <Terminal size={20} />,
+    items: ["Data Structures & Algorithms", "Object-Oriented Programming"]
+  },
+  {
+    category: "Cloud & DevOps",
+    icon: <Cloud size={20} />,
+    items: ["AWS (EC2, S3, IAM)"]
   }
 ];
 

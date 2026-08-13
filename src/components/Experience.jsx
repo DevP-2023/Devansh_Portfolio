@@ -5,8 +5,8 @@ import './Experience.css';
 
 const experiences = [
   {
-    role: "Technical Member — Machine Learning",
-    company: "ALDC, Area Load Despatch Centre · MSETCL (MAHATRANSCO)",
+    role: "AI Researcher",
+    company: "ALDC, Area Load Despatch Centre · MSETCL (MAHATRANSCO) GOV",
     period: "March 2025 – 2026",
     description: [
       "Developed deep learning models for electricity load forecasting using SCADA and AMR data.",
