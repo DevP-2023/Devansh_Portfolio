@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code2, Database, BrainCircuit, LineChart, Terminal, Cloud } from 'lucide-react';
+import { Code2, Layers, BrainCircuit, LineChart, Terminal, Cloud } from 'lucide-react';
 import './About.css';
 
 const skills = [
@@ -16,7 +16,7 @@ const skills = [
   },
   {
     category: "Frameworks",
-    icon: <Database size={20} />,
+    icon: <Layers size={20} />,
     items: ["PyTorch", "TensorFlow", "Hugging Face", "LangChain", "LangGraph", "Scikit-learn"]
   },
   {
