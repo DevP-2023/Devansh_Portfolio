@@ -1,34 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
 
 :root {
-  /* ── Core Palette ── */
-  --bg-color:       #f8f9fa;
-  --bg-secondary:   #f1f3f5;
-  --bg-card:        #ffffff;
+  /* ── Core Palette — Premium Colorful Light Theme ── */
+  --bg-color:       #f4f6fa;
+  --bg-secondary:   #eaeef6;
+  --bg-card:        rgba(255, 255, 255, 0.85);
 
-  /* ── Text ── */
-  --text-primary:   #1a1f2c;
-  --text-secondary: #4a5568;
-  --text-muted:     #718096;
+  /* ── Text — Deep Slate Crisp ── */
+  --text-primary:   #0f172a;
+  --text-secondary: #475569;
+  --text-muted:     #64748b;
 
-  /* ── Accent — formal corporate navy/blue ── */
+  /* ── Accent — Vibrant Royal Blue, Indigo & Sky Cyan ── */
   --accent:         #1d4ed8;
-  --accent-light:   #3b82f6;
-  --accent-dim:     rgba(29, 78, 216, 0.08);
-  --accent-border:  rgba(29, 78, 216, 0.2);
+  --accent-light:   #2563eb;
+  --accent-cyan:    #0284c7;
+  --accent-purple:  #7c3aed;
+  --accent-dim:     rgba(37, 99, 235, 0.08);
+  --accent-border:  rgba(37, 99, 235, 0.22);
+  --accent-glow:    rgba(37, 99, 235, 0.25);
 
-  /* ── Borders & Surfaces ── */
+  /* ── Borders & Glass Surfaces ── */
   --border:         rgba(0, 0, 0, 0.08);
-  --border-hover:   rgba(0, 0, 0, 0.15);
-  --surface:        rgba(0, 0, 0, 0.02);
+  --border-hover:   rgba(37, 99, 235, 0.35);
+  --surface:        rgba(37, 99, 235, 0.03);
 
   /* ── Typography ── */
   --font-sans:      'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-serif:     'Playfair Display', Georgia, serif;
 
-  /* ── Spacing ── */
-  --radius-sm:  6px;
-  --radius-md:  10px;
+  /* ── Radius & Spacing ── */
+  --radius-sm:  8px;
+  --radius-md:  12px;
   --radius-lg:  16px;
 }
 
@@ -85,7 +88,7 @@ a:hover { color: var(--accent-light); }
 ======================== */
 .section-eyebrow {
   display: inline-block;
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -95,18 +98,19 @@ a:hover { color: var(--accent-light); }
 
 .section-title {
   font-family: var(--font-serif);
-  font-size: 2.4rem;
+  font-size: 2.5rem;
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 1.25rem;
 }
 
 .section-divider {
-  width: 40px;
-  height: 2px;
-  background: var(--accent);
-  border-radius: 2px;
+  width: 44px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-cyan));
+  border-radius: 3px;
   margin-bottom: 3.5rem;
+  box-shadow: 0 2px 8px var(--accent-glow);
 }
 
 /* ========================
@@ -117,8 +121,8 @@ a:hover { color: var(--accent-light); }
   top: 5%;
   left: -5%;
   font-size: 14vw;
-  font-weight: 800;
-  color: var(--text-primary);
+  font-weight: 900;
+  color: rgba(15, 23, 42, 0.035);
   z-index: 0;
   pointer-events: none;
   white-space: nowrap;
@@ -129,18 +133,20 @@ a:hover { color: var(--accent-light); }
 }
 
 /* ========================
-   CARD SURFACE
+   CARD SURFACE (GLASSMORPHISM LIGHT)
 ======================== */
 .card {
   background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.05);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 .card:hover {
   border-color: var(--border-hover);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 12px 35px rgba(37, 99, 235, 0.12);
 }
 
 /* ========================
@@ -151,55 +157,60 @@ a:hover { color: var(--accent-light); }
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.7rem 1.6rem;
+  padding: 0.75rem 1.75rem;
   border-radius: var(--radius-sm);
   font-weight: 500;
   font-family: var(--font-sans);
   font-size: 0.9rem;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
   cursor: pointer;
   border: none;
   letter-spacing: 0.01em;
 }
 
 .btn-primary {
-  background: var(--accent);
+  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
   color: #fff;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
 }
 .btn-primary:hover {
-  background: var(--accent-light);
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
   color: #fff;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(79, 126, 247, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(37, 99, 235, 0.45);
 }
 
 .btn-outline {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.7);
   color: var(--text-primary);
   border: 1px solid var(--border-hover);
+  backdrop-filter: blur(12px);
 }
 .btn-outline:hover {
   border-color: var(--accent);
   color: var(--accent);
   background: var(--accent-dim);
+  box-shadow: 0 2px 12px rgba(37, 99, 235, 0.15);
 }
 
 /* ========================
    SCROLLBAR
 ======================== */
-::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg-color); }
 ::-webkit-scrollbar-thumb {
-  background: var(--text-muted);
-  border-radius: 4px;
+  background: #cbd5e1;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
 }
 
 /* ========================
    SELECTION
 ======================== */
 ::selection {
-  background: rgba(29, 78, 216, 0.15);
+  background: rgba(37, 99, 235, 0.15);
   color: var(--accent);
 }
 

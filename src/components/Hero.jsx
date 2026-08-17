@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Mail } from 'lucide-react';
 import profilePhoto from '../Gallery/Devansh Linkdin.png';
@@ -6,12 +6,54 @@ import './Hero.css';
 
 const containerVariants = {
   hidden:  { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.12, delayChildren: 0.8 } }
+  visible: { opacity: 1, transition: { staggerChildren: 0.12, delayChildren: 0.3 } }
 };
 
 const itemVariants = {
   hidden:  { opacity: 0, y: 30, filter: 'blur(5px)' },
   visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
+};
+
+const TypeWriter = ({ text, delay = 1.5, speed = 80 }) => {
+  const [displayed, setDisplayed] = useState('');
+  const [started, setStarted] = useState(false);
+  const [showCursor, setShowCursor] = useState(true);
+
+  useEffect(() => {
+    const startTimeout = setTimeout(() => setStarted(true), delay * 1000);
+    return () => clearTimeout(startTimeout);
+  }, [delay]);
+
+  useEffect(() => {
+    if (!started) return;
+    if (displayed.length < text.length) {
+      const timer = setTimeout(() => {
+        setDisplayed(text.slice(0, displayed.length + 1));
+      }, speed);
+      return () => clearTimeout(timer);
+    } else {
+      // Blink cursor a few times then hide
+      const blinkTimeout = setTimeout(() => setShowCursor(false), 2000);
+      return () => clearTimeout(blinkTimeout);
+    }
+  }, [started, displayed, text, speed]);
+
+  // Cursor blink
+  const [cursorVisible, setCursorVisible] = useState(true);
+  useEffect(() => {
+    if (!showCursor) return;
+    const interval = setInterval(() => setCursorVisible((v) => !v), 530);
+    return () => clearInterval(interval);
+  }, [showCursor]);
+
+  return (
+    <span>
+      {displayed}
+      {showCursor && (
+        <span className="typing-cursor" style={{ opacity: cursorVisible ? 1 : 0 }}>|</span>
+      )}
+    </span>
+  );
 };
 
 const Hero = () => (
@@ -58,16 +100,7 @@ const Hero = () => (
         </motion.span>
 
         <h1 className="hero-name">
-          <motion.div style={{ overflow: 'hidden' }}>
-            <motion.span style={{ display: 'inline-block' }} variants={itemVariants}>
-              Devansh
-            </motion.span>
-          </motion.div>
-          <motion.div style={{ overflow: 'hidden' }}>
-            <motion.span style={{ display: 'inline-block' }} variants={itemVariants}>
-              Paltewar
-            </motion.span>
-          </motion.div>
+          <TypeWriter text="Devansh Paltewar" delay={1.2} speed={90} />
         </h1>
 
         <motion.p className="hero-summary" variants={itemVariants}>

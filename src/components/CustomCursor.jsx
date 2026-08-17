@@ -1,4 +1,4 @@
- import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import './CustomCursor.css';
 
@@ -50,15 +50,15 @@ const CustomCursor = () => {
       y: mousePosition.y - 16,
       scale: 1,
       opacity: 1,
-      backgroundColor: 'rgba(29, 78, 216, 0.05)',
-      border: '1px solid rgba(29, 78, 216, 0.4)'
+      backgroundColor: 'rgba(37, 99, 235, 0.05)',
+      border: '1px solid rgba(37, 99, 235, 0.4)'
     },
     hover: {
       x: mousePosition.x - 24,
       y: mousePosition.y - 24,
       scale: 1.5,
       opacity: 0.8,
-      backgroundColor: 'rgba(29, 78, 216, 0.1)',
+      backgroundColor: 'rgba(37, 99, 235, 0.12)',
       border: '1px solid rgba(29, 78, 216, 0.8)'
     },
     click: {
@@ -66,7 +66,7 @@ const CustomCursor = () => {
       y: mousePosition.y - 16,
       scale: 0.7,
       opacity: 1,
-      backgroundColor: 'rgba(29, 78, 216, 0.4)',
+      backgroundColor: 'rgba(29, 78, 216, 0.35)',
       border: '1px solid rgba(29, 78, 216, 0.8)'
     }
   };

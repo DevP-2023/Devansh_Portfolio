@@ -11,12 +11,13 @@
 ======================== */
 .skill-card {
   padding: 1.75rem;
-  border-left: 2px solid transparent;
+  border-left: 3px solid transparent;
   transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 .skill-card:hover {
   border-left-color: var(--accent);
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.12);
 }
 
 /* ========================
@@ -31,12 +32,13 @@
   border-radius: 10px;
   background: var(--accent-dim);
   border: 1px solid var(--accent-border);
-  color: var(--accent-light);
+  color: var(--accent);
   margin-bottom: 1.25rem;
+  box-shadow: 0 2px 10px rgba(37, 99, 235, 0.1);
 }
 
 .skill-category {
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 600;
   margin-bottom: 1.25rem;
   color: var(--text-primary);
@@ -53,17 +55,18 @@
 }
 
 .skill-tag {
-  background: rgba(0, 0, 0, 0.02);
-  border: 1px solid var(--border);
-  padding: 0.28rem 0.7rem;
-  border-radius: 4px;
+  background: rgba(241, 245, 249, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 0.3rem 0.75rem;
+  border-radius: 6px;
   font-size: 0.78rem;
   color: var(--text-secondary);
-  transition: border-color 0.2s, color 0.2s;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
   cursor: default;
 }
 
 .skill-tag:hover {
   border-color: var(--accent-border);
-  color: var(--text-primary);
+  color: var(--accent);
+  background: var(--accent-dim);
 }
