@@ -32,9 +32,7 @@ const TypeWriter = ({ text, delay = 1.5, speed = 80 }) => {
       }, speed);
       return () => clearTimeout(timer);
     } else {
-      // Blink cursor a few times then hide
-      const blinkTimeout = setTimeout(() => setShowCursor(false), 2000);
-      return () => clearTimeout(blinkTimeout);
+      setShowCursor(false);
     }
   }, [started, displayed, text, speed]);
 
@@ -50,7 +48,7 @@ const TypeWriter = ({ text, delay = 1.5, speed = 80 }) => {
     <span>
       {displayed}
       {showCursor && (
-        <span className="typing-cursor" style={{ opacity: cursorVisible ? 1 : 0 }}>|</span>
+        <span className="typing-cursor" style={{ opacity: cursorVisible ? 1 : 0 }}>.</span>
       )}
     </span>
   );
