@@ -117,6 +117,32 @@
   flex-wrap: wrap;
 }
 
+.hero-socials {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.hero-social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-hover);
+  transition: all 0.2s ease;
+}
+
+.hero-social-icon:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+}
+
 /* ── Scroll indicator ── */
 .hero-scroll {
   position: absolute;
