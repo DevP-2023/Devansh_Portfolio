@@ -68,18 +68,21 @@
   margin-bottom: 1.25rem;
 }
 
-.exp-role {
-  font-size: 1.15rem;
-  font-weight: 600;
-  margin-bottom: 0.3rem;
-  color: var(--text-primary);
-  letter-spacing: -0.01em;
+.exp-company {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+  color: var(--accent);
+  letter-spacing: -0.015em;
+  line-height: 1.35;
 }
 
-.exp-company {
-  color: var(--accent);
-  font-size: 0.88rem;
-  font-weight: 500;
+.exp-role {
+  color: var(--text-primary);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  line-height: 1.4;
 }
 
 .exp-period {
