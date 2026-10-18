@@ -5,22 +5,32 @@ import './Experience.css';
 
 const experiences = [
   {
-    role: "AI Researcher",
-    company: "ALDC, Area Load Despatch Centre · MSETCL (MAHATRANSCO) GOV",
-    period: "March 2025 – 2026",
+    company: "Infocepts",
+    role: "Data Engineer - DTO Intern",
+    period: "Present",
     description: [
-      "Developed deep learning models for electricity load forecasting using SCADA and AMR data.",
-      "Processed 100,000+ records through preprocessing and missing-value handling pipelines.",
-      "Collaborated with ALDC engineers to validate and deploy forecasting models in production.",
+      "Working on data engineering, cloud automation, and Generative AI solutions.",
+      "Performing SQL-based data exploration and analysis.",
+      "Developing LLM applications and workflows using LangChain, LiteLLM and other AI frameworks."
     ]
   },
   {
-    role: "AI / ML Developer",
     company: "DevUnite",
+    role: "AI / ML Developer",
     period: "July 2026 – 2026",
     description: [
       "Engineered and deployed Retrieval-Augmented Generation (RAG) pipelines integrating vector databases, embeddings, and LLMs for semantic search and accurate contextual responses.",
       "Developed and tuned machine learning models for data preprocessing, feature engineering, and predictive workflows."
+    ]
+  },
+  {
+    company: "ALDC, Area Load Despatch Centre · MSETCL (MAHATRANSCO) GOV",
+    role: "AI Researcher",
+    period: "March 2025 – 2026",
+    description: [
+      "Developed deep learning models for electricity load forecasting using SCADA and AMR data.",
+      "Processed 100,000+ records through preprocessing and missing-value handling pipelines.",
+      "Collaborated with ALDC engineers to validate and deploy forecasting models in production."
     ]
   }
 ];
@@ -78,8 +88,8 @@ const Experience = () => (
             <div className="timeline-content card">
               <div className="timeline-header">
                 <div>
-                  <h3 className="exp-role">{exp.role}</h3>
-                  <p className="exp-company">{exp.company}</p>
+                  <h3 className="exp-company">{exp.company}</h3>
+                  <p className="exp-role">{exp.role}</p>
                 </div>
                 <span className="exp-period">{exp.period}</span>
               </div>
